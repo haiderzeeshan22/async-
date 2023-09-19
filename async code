@@ -1,0 +1,122 @@
+// let ans = new Promise((res  , rej )=> {
+//     setTimeout(() => {
+//         let data =["momo","kano","jano"]
+//     if (data){
+//         console.log("promise resolve");
+//         return res(data);
+//            }
+//            else {
+//             console.log("promise rejected");
+//             return rej(new Error("data fetch fialed"));
+//            }
+//     }, 4000);
+// })
+// ans.then((data)=>{
+//     console.log(data);
+    
+// })
+// .catch((Error)=>{
+//     console.log(Error);
+// })
+
+
+// //==============================================================
+
+
+// let myPromise = new Promise ((res , rej)=>{
+// console.log("Promise Pendding");
+// setTimeout(() => {
+//     console.log("Promise resolved");
+//     res(["zeeshan","Haider","Hadia Zeeshan"])
+// }, 2000);
+// })
+// myPromise.then((data)=>{
+//     console.log(data);
+    
+// })
+
+
+// let tooPro = new Promise ((res , rej)=>{
+//     console.log(" im super fast");
+
+//   setTimeout(() => {
+//         let array : string[]= ["im fast " ]
+// if (array){
+//     // console.log("promise is resolved");
+//     return res (array)
+// }else{
+//     console.log("promise is rejeceted");
+//     return rej(new Error("data fetch failed"))
+    
+// }
+// }, 1000);
+// })
+//  let P1 = tooPro.then((data)=>{console.log(data);
+//     return new Promise ((res , rej)=>{
+//         let array1 :string[]= ["im slow"]
+//         setTimeout(() => {
+//             return res(array1)
+//         }, 2000);
+//     })
+//  })
+// P1.then((data)=>{console.log(data);
+// })
+
+//==================================================================================================
+let tooL = new Promise ((res , rej)=>{
+let st :string = "im super fast"
+setTimeout(() => {
+    if(st){
+        return res(st)
+    }else {
+        return (new Error("data fatch is failed"))
+    }
+}, 0);
+})
+let tooL1 =tooL.then((data)=>{console.log(data);
+    return new Promise ((res, rej)=>{
+    let st1:string ="Im fast"
+    setTimeout(() => {
+        if(st1){
+            return res(st1)
+        }else {
+            return (new Error("data fatch is failed"))
+        }
+    }, 1000);
+    })
+})
+let tooL2 = tooL1.then((data)=>{console.log(data);
+    return new Promise ((res, rej)=>{
+        //  let st2 :string = "Im slow"
+        setTimeout(() => {
+            // if(st2){
+            //     return res (st2)
+            // }else {
+                return rej (new Error("data fatch is failed again"))
+            // }
+        }, 2000);
+    })
+})
+tooL2.catch((err)=>{console.log(err);
+})
+
+
+//what is heck in event loop ?
+//
+
+//typescript run the code from the top to the bottom with out taking care of sequence of the sentence .it run the code 
+// with its own sequence of line by line which means that if TS (soppose has 5 lines of code) it will exetcute line 1
+// then line 2 then upto line 5 line by line(mean every line of code is executed annonymously thats why its a 
+//single threaded language ) this is what is called syncronous 
+// to overcome this drawback we TS facilitates us with asyncronous . async give the required time to a line of code 
+//e.g if the code required 5 sec then  async gives 5 sec time to it.
+// three terms we have to remember callStack(Main stack, execution stack), Sidestack ()
+
+
+
+
+
+
+
+
+
